@@ -1,0 +1,42 @@
+// Import design tokens and mixins
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// Home page wrapper
+.home {
+  overflow-x: hidden;
+}
+
+// Section header — centered eyebrow + title
+.sectionHeader {
+  text-align: center;
+  margin-bottom: $spacing-xl;
+}
+
+// Section eyebrow — small text above title
+.eyebrow {
+  @include body-text;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: $color-terracotta;
+  margin-bottom: $spacing-sm;
+}
+
+// Section title — large display heading
+.sectionTitle {
+  @include heading-display;
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+// Collection section — padding around the product grid
+.collection {
+  padding: $spacing-xl $spacing-lg;
+}
+
+// Product grid — 4 columns on desktop
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-md;
+}

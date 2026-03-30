@@ -1,0 +1,144 @@
+// Import design tokens and mixins
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// Card container — cursor changes on hover
+.card {
+  position: relative;
+  cursor: pointer;
+}
+
+// Product image area — 3:4 ratio like a fashion photo
+.image {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: $color-sand;
+  margin-bottom: $spacing-sm;
+}
+
+// Placeholder — temporary until real images
+.placeholder {
+  width: 100%;
+  height: 100%;
+  @include flex-center;
+  font-family: $font-display;
+  font-size: 3rem;
+  color: rgba(42, 24, 16, 0.1);
+  background: linear-gradient(135deg, $color-sand 0%, $color-cream 100%);
+}
+
+// Tag badge — "New", "Limited", "Exclusive"
+.tag {
+  position: absolute;
+  top: $spacing-sm;
+  left: $spacing-sm;
+  @include body-text;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  background: $color-terracotta;
+  color: $color-cream;
+}
+
+// Quick view overlay — dark gradient from bottom
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(42, 24, 16, 0.6), transparent 50%);
+  opacity: 0;
+  @include smooth-transition(opacity);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: $spacing-md;
+}
+
+// Show overlay on card hover
+.card:hover .overlay {
+  opacity: 1;
+}
+
+// Quick view button — outlined, slides up on hover
+.quickView {
+  @include body-text;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $color-cream;
+  background: transparent;
+  border: 1px solid $color-cream;
+  padding: $spacing-sm $spacing-md;
+  cursor: pointer;
+  @include smooth-transition;
+  transform: translateY(20px);
+
+  // Slides into position when card is hovered
+  .card:hover & {
+    transform: translateY(0);
+  }
+
+  // Button itself turns solid on hover
+  &:hover {
+    background: $color-cream;
+    color: $color-deep-brown;
+  }
+}
+
+// Product info — text below the image
+.info {
+  padding: $spacing-xs 0;
+}
+
+// Category label — small, uppercase, terracotta
+.category {
+  @include body-text;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $color-terracotta;
+  margin-bottom: 4px;
+}
+
+// Product name — elegant display font
+.name {
+  font-family: $font-display;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: $color-deep-brown;
+  margin-bottom: 4px;
+}
+
+// Price — slightly faded
+.price {
+  @include body-text;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  color: $color-deep-brown;
+}
+
+// Color swatches row
+.colors {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+// Individual color circle
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba(42, 24, 16, 0.15);
+  @include smooth-transition(transform);
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}

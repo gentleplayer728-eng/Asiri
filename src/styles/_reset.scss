@@ -1,0 +1,48 @@
+// ========================
+// ÀṢÍRÍ CSS Reset
+// ========================
+@use 'variables' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}   
+html {
+    scroll-behavior: smooth;
+}
+body {
+  font-family: $font-body;
+  background-color: $color-cream;
+  color: $color-deep-brown;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+}   
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+imput, texturea {
+  font-family: inherit;
+  border: none;
+  outline: none;
+}   

@@ -1,0 +1,115 @@
+// Import design tokens and mixins
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// Main nav container — fixed at top, spreads logo/links/icons apart
+.nav {
+    @include flex-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding:  $spacing-md $spacing-lg;
+    background: linear-gradient(
+        to botton,
+        rgba(245, 240, 232, 0.98),
+        rgba(245, 240, 232, 0)
+    );
+    z-index: 1000;
+    @include smooth-transition;
+
+    // Scrolled state — solid background with blur
+    &.scrolled {
+      background: rgba(245, 240, 232, 0.98);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 2px 40px rgba(42, 24, 16, 0.08);
+    }
+}
+
+// Logo — elegant display font with gradient underline
+.logo {
+    @include heading-display;
+    font-size: 2rem;
+    letter-spacing: 0.3em;
+    color: $color-deep-brown;
+    text-decoration: none;
+    position: relative;
+
+    // Gradient underline — terracotta to gold to kente green
+    &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      $color-terracotta,
+      $color-gold,
+      $color-kente-green
+    );
+  }
+}
+
+// Navigation links — horizontal list with hover effect
+.navLinks {
+  @include flex-center;
+  gap: $spacing-lg;
+  list-style: none;
+
+  // Individual link styling
+  a {
+    @include body-text;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $color-deep-brown;
+    text-decoration: none;
+    position: relative;
+    padding: $spacing-xs 0;
+
+    // Hover underline — slides in from left
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: $color-terracotta;
+      @include smooth-transition(width);
+    }
+
+    // On hover, underline expands to full width
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+// Utility icons container — search, wishlist, cart in a row
+.navIcons {
+  @include flex-center;
+  gap: $spacing-md;
+}
+
+// Individual icon button/link styling
+.iconBtn {
+  @include body-text;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $color-deep-brown;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.8;
+  @include smooth-transition(opacity);
+
+  // Hover — full opacity
+  &:hover {
+    opacity: 1;
+  }
+}

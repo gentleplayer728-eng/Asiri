@@ -1,0 +1,205 @@
+// Import design tokens and mixins
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// Hero section — full screen, centered content
+.hero {
+  min-height: 100vh;
+  @include flex-center;
+  position: relative;
+  overflow: hidden;
+  padding: $spacing-xl $spacing-lg;
+}
+
+// Fade up animation — content slides up and fades in
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Content wrapper — centered, max width, animated entrance
+.content {
+  text-align: center;
+  z-index: 2;
+  max-width: 900px;
+  animation: fadeUp 1.2s ease-out;
+}
+
+// Eyebrow — small text above the headline
+.eyebrow {
+  @include body-text;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: $color-terracotta;
+  margin-bottom: $spacing-md;
+  animation: fadeUp 1.2s ease-out 0.2s backwards;
+}
+
+// Main headline — big, dramatic display text
+.title {
+  @include heading-display;
+  font-size: clamp(3rem, 10vw, 8rem);
+  margin-bottom: $spacing-md;
+  animation: fadeUp 1.2s ease-out 0.4s backwards;
+
+  // Second line — italic and terracotta
+  span {
+    display: block;
+    font-style: italic;
+    color: $color-terracotta;
+  }
+}
+
+// Subtitle — supporting description
+.subtitle {
+  @include body-text;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: $color-deep-brown;
+  opacity: 0.7;
+  max-width: 500px;
+  margin: 0 auto $spacing-lg;
+  animation: fadeUp 1.2s ease-out 0.6s backwards;
+}
+
+// Call to action button — dark background with sliding hover effect
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  @include body-text;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: $color-cream;
+  background: $color-deep-brown;
+  padding: $spacing-md $spacing-lg;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  @include smooth-transition;
+  animation: fadeUp 1.2s ease-out 0.8s backwards;
+
+  // Sliding gradient — hidden off-screen to the left
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      $color-terracotta,
+      $color-burnt-orange
+    );
+    transition: left 0.4s ease;
+  }
+
+  // On hover, gradient slides in from left
+  &:hover::before {
+    left: 0;
+  }
+
+  // Keep text above the sliding gradient
+  span {
+    position: relative;
+    z-index: 1;
+  }
+
+  // Keep arrow above the sliding gradient
+  svg {
+    position: relative;
+    z-index: 1;
+    @include smooth-transition(transform);
+  }
+
+  // Arrow nudges right on hover
+  &:hover svg {
+    transform: translateX(5px);
+  }
+}
+
+// Decorative circle — large, slowly rotating, right side
+.deco {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border: 1px solid $color-gold;
+  opacity: 0.2;
+  border-radius: 50%;
+  top: 10%;
+  right: -100px;
+  animation: rotate 30s linear infinite;
+}
+
+// Decorative circle — smaller, left side, rotates opposite
+.decoSmall {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 1px solid $color-gold;
+  opacity: 0.2;
+  border-radius: 50%;
+  bottom: 10%;
+  left: -150px;
+  animation: rotate 25s linear infinite reverse;
+}
+
+// Rotation animation for decorative circles
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Scroll indicator — sits at the bottom center
+.scrollIndicator {
+  position: absolute;
+  bottom: $spacing-lg;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-xs;
+  opacity: 0.5;
+  @include smooth-transition(opacity);
+
+  span {
+    @include body-text;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: $color-deep-brown;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// Bounce animation for scroll indicator
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
