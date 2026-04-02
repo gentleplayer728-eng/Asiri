@@ -40,3 +40,277 @@
   grid-template-columns: repeat(4, 1fr);
   gap: $spacing-md;
 }
+// ========================
+// Featured Heritage Banner
+// ========================
+
+// Banner container — dark, tall, dramatic
+.featured {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin: $spacing-xl 0;
+}
+
+// Dark gradient background layer
+.featuredBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, $color-deep-brown 0%, $color-charcoal 100%);
+}
+
+// Diamond pattern overlay
+.featuredPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.08;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30L30 0z' fill='none' stroke='%23C9A962' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+
+// Content — two column grid (text left, image right)
+.featuredContent {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xl;
+  padding: $spacing-xl $spacing-lg;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+// Text column — vertically centered
+.featuredText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: $color-cream;
+}
+
+// Eyebrow — gold instead of terracotta (dark background)
+.featuredEyebrow {
+  @include body-text;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: $color-gold;
+  margin-bottom: $spacing-md;
+}
+
+// Title — large display with italic gold span
+.featuredTitle {
+  @include heading-display;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  color: $color-cream;
+  margin-bottom: $spacing-md;
+
+  span {
+    font-style: italic;
+    color: $color-gold;
+  }
+}
+
+// Description paragraph
+.featuredDescription {
+  @include body-text;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  opacity: 0.8;
+  margin-bottom: $spacing-lg;
+  max-width: 450px;
+}
+
+// CTA button — gold background, dark text
+.featuredCta {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  @include body-text;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: $color-deep-brown;
+  background: $color-gold;
+  padding: $spacing-md $spacing-lg;
+  text-decoration: none;
+  @include smooth-transition;
+  align-self: flex-start;
+
+  &:hover {
+    background: $color-cream;
+    transform: translateY(-2px);
+  }
+}
+
+// Image container — holds image and decorative frame
+.featuredImageContainer {
+  position: relative;
+}
+
+// Image placeholder — dark gradient with ÀṢÍRÍ text
+.featuredImage {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  @include flex-center;
+  font-family: $font-display;
+  font-size: 3rem;
+  background: linear-gradient(135deg, $color-indigo 0%, $color-deep-brown 100%);
+  color: rgba(201, 169, 98, 0.3);
+}
+
+// Gold frame offset behind the image
+.featuredFrame {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid $color-gold;
+  opacity: 0.5;
+}
+
+// ========================
+// Category Cards
+// ========================
+
+// Categories grid — 3 equal columns
+.categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+  padding: $spacing-xl $spacing-lg;
+}
+
+// Individual category card
+.categoryCard {
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+// Category placeholder — background with letter
+.categoryPlaceholder {
+  width: 100%;
+  height: 100%;
+  @include flex-center;
+  font-family: $font-display;
+  font-size: 4rem;
+  color: rgba(42, 24, 16, 0.1);
+  background: linear-gradient(135deg, $color-sand 0%, $color-cream 100%);
+}
+
+// Dark gradient overlay with text at bottom
+.categoryOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(42, 24, 16, 0.8), transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: $spacing-lg;
+}
+
+// Category name — elegant display font
+.categoryName {
+  font-family: $font-display;
+  font-size: 2rem;
+  font-weight: 300;
+  color: $color-cream;
+  margin-bottom: $spacing-xs;
+}
+
+// Piece count — small gold text
+.categoryCount {
+  @include body-text;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $color-gold;
+}
+
+// ========================
+// Newsletter
+// ========================
+
+// Newsletter section — sand background, centered
+.newsletter {
+  background: $color-sand;
+  padding: $spacing-xl $spacing-lg;
+  text-align: center;
+}
+
+// Newsletter heading
+.newsletterTitle {
+  @include heading-display;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: $spacing-sm;
+}
+
+// Newsletter description
+.newsletterSubtitle {
+  @include body-text;
+  font-size: 0.9rem;
+  font-weight: 300;
+  opacity: 0.7;
+  margin-bottom: $spacing-lg;
+}
+
+// Form row — input and button side by side
+.newsletterForm {
+  display: flex;
+  gap: $spacing-sm;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+// Email input field
+.newsletterInput {
+  flex: 1;
+  padding: $spacing-md;
+  font-family: $font-body;
+  font-size: 0.9rem;
+  border: 1px solid rgba(42, 24, 16, 0.2);
+  background: $color-cream;
+  @include smooth-transition(border-color);
+
+  &:focus {
+    border-color: $color-terracotta;
+  }
+}
+
+// Subscribe button
+.newsletterBtn {
+  padding: $spacing-md $spacing-lg;
+  @include body-text;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: $color-deep-brown;
+  color: $color-cream;
+  cursor: pointer;
+  @include smooth-transition(background);
+
+  &:hover {
+    background: $color-terracotta;
+  }
+}

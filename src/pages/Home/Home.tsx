@@ -91,6 +91,84 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Featured Heritage Banner */}
+      <section className={styles.featured}>
+        <div className={styles.featuredBg}></div>
+        <div className={styles.featuredPattern}></div>
+        <div className={styles.featuredContent}>
+
+          {/* Left side — text */}
+          <div className={styles.featuredText}>
+            <p className={styles.featuredEyebrow}>Heritage Collection</p>
+            <h2 className={styles.featuredTitle}>
+              The Art of
+              <span>African Elegance</span>
+            </h2>
+            <p className={styles.featuredDescription}>
+              Our master artisans collaborate with traditional weavers
+              across the continent, preserving ancestral techniques while
+              crafting pieces for the modern world. Each garment carries
+              centuries of wisdom in every thread.
+            </p>
+            <a href="/story" className={styles.featuredCta}>
+              <span>Discover the Story</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+
+          {/* Right side — image placeholder */}
+          <div className={styles.featuredImageContainer}>
+            <div className={styles.featuredImage}>ÀṢÍRÍ</div>
+            <div className={styles.featuredFrame}></div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Category Cards — Women, Men, Accessories */}
+      <section className={styles.categories}>
+        <div className={styles.categoryCard}>
+          <div className={styles.categoryPlaceholder}>W</div>
+          <div className={styles.categoryOverlay}>
+            <h3 className={styles.categoryName}>Women</h3>
+            <p className={styles.categoryCount}>124 Pieces</p>
+          </div>
+        </div>
+        <div className={styles.categoryCard}>
+          <div className={styles.categoryPlaceholder}>M</div>
+          <div className={styles.categoryOverlay}>
+            <h3 className={styles.categoryName}>Men</h3>
+            <p className={styles.categoryCount}>98 Pieces</p>
+          </div>
+        </div>
+        <div className={styles.categoryCard}>
+          <div className={styles.categoryPlaceholder}>A</div>
+          <div className={styles.categoryOverlay}>
+            <h3 className={styles.categoryName}>Accessories</h3>
+            <p className={styles.categoryCount}>76 Pieces</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Signup */}
+      <section className={styles.newsletter}>
+        <h2 className={styles.newsletterTitle}>Join the Heritage</h2>
+        <p className={styles.newsletterSubtitle}>
+          Subscribe for exclusive access to new collections and African
+          fashion stories
+        </p>
+        <div className={styles.newsletterForm}>
+          <input
+            type="email"
+            className={styles.newsletterInput}
+            placeholder="Enter your email"
+          />
+          <button className={styles.newsletterBtn}>Subscribe</button>
+        </div>
+      </section>
+
     </main>
   )
 }
