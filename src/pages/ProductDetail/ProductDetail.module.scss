@@ -1,0 +1,203 @@
+// Import design tokens and mixins
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// Page container — padding for fixed navbar
+.detail {
+  padding-top: 160px;
+  padding-bottom: $spacing-xl;
+}
+
+// Two-column layout — image left, info right
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xl;
+  padding: 0 $spacing-lg;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+// Left column — product image
+.imageSection {
+  position: relative;
+}
+
+// Image placeholder — tall portrait ratio
+.imagePlaceholder {
+  width: 100%;
+  aspect-ratio: 3/4;
+  @include flex-center;
+  font-family: $font-display;
+  font-size: 5rem;
+  color: rgba(42, 24, 16, 0.1);
+  background: linear-gradient(135deg, $color-sand 0%, $color-cream 100%);
+  position: relative;
+}
+
+// Tag badge — same as ProductCard
+.tag {
+  position: absolute;
+  top: $spacing-sm;
+  left: $spacing-sm;
+  @include body-text;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  background: $color-terracotta;
+  color: $color-cream;
+}
+
+// Right column — product information
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: $spacing-lg 0;
+}
+
+// Category label — small terracotta text
+.category {
+  @include body-text;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $color-terracotta;
+  margin-bottom: $spacing-xs;
+}
+
+// Product name — large display font
+.name {
+  @include heading-display;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: $spacing-sm;
+}
+
+// Price
+.price {
+  @include body-text;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: $color-deep-brown;
+  margin-bottom: $spacing-md;
+}
+
+// Description — the product story
+.description {
+  @include body-text;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.8;
+  opacity: 0.8;
+  margin-bottom: $spacing-lg;
+  max-width: 500px;
+}
+
+// Option group — wraps color or size selection
+.optionGroup {
+  margin-bottom: $spacing-md;
+}
+
+// Option label — "Color" or "Size"
+.optionLabel {
+  @include body-text;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $color-deep-brown;
+  margin-bottom: $spacing-sm;
+}
+
+// Color swatches row
+.colors {
+  display: flex;
+  gap: 10px;
+}
+
+// Individual color circle — larger than ProductCard
+.swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid rgba(42, 24, 16, 0.15);
+  cursor: pointer;
+  @include smooth-transition(transform);
+
+  &:hover {
+    transform: scale(1.15);
+    border-color: $color-deep-brown;
+  }
+}
+
+// Size buttons row
+.sizes {
+  display: flex;
+  gap: $spacing-xs;
+  flex-wrap: wrap;
+}
+
+// Individual size button
+.sizeBtn {
+  @include body-text;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  padding: 10px 20px;
+  border: 1px solid rgba(42, 24, 16, 0.2);
+  background: none;
+  color: $color-deep-brown;
+  cursor: pointer;
+  @include smooth-transition;
+
+  &:hover {
+    border-color: $color-deep-brown;
+    background: $color-deep-brown;
+    color: $color-cream;
+  }
+}
+
+// Add to cart button — prominent CTA
+.addToCart {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  align-self: flex-start;
+  margin-top: $spacing-md;
+  @include body-text;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: $color-cream;
+  background: $color-deep-brown;
+  padding: $spacing-md $spacing-lg;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  @include smooth-transition;
+
+  &:hover {
+    background: $color-terracotta;
+  }
+
+  span {
+    position: relative;
+    z-index: 1;
+  }
+
+  svg {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// Not found message
+.notFound {
+  @include body-text;
+  text-align: center;
+  padding-top: 200px;
+  font-size: 1.2rem;
+  opacity: 0.5;
+}

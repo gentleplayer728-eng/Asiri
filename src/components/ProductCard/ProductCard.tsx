@@ -1,42 +1,39 @@
+// Import Link for navigation
+import { Link } from 'react-router-dom'
+
 // Import scoped styles
 import styles from './ProductCard.module.scss'
 
 // Define the shape of data this component accepts
 type ProductCardProps = {
-  letter: string        // Placeholder letter for image
-  tag?: string          // Optional badge like "New" or "Limited"
-  category: string      // Collection name
-  name: string          // Product name
-  price: string         // Product price
-  colors: string[]      // Array of hex color codes
+  id: string
+  letter: string
+  tag?: string
+  category: string
+  name: string
+  price: string
+  colors: string[]
 }
 
-// ProductCard component — displays a single product
-// Receives data through props — reusable with different products
-const ProductCard = ({ letter, tag, category, name, price, colors }: ProductCardProps) => {
+// ProductCard component — clickable, links to product detail
+const ProductCard = ({ id, letter, tag, category, name, price, colors }: ProductCardProps) => {
   return (
-    <div className={styles.card}>
+    <Link to={`/products/${id}`} className={styles.card}>
 
-      {/* Product image area — placeholder for now */}
+      {/* Product image area */}
       <div className={styles.image}>
         <div className={styles.placeholder}>{letter}</div>
-
-        {/* Tag badge — only shows if tag prop exists */}
         {tag && <span className={styles.tag}>{tag}</span>}
-
-        {/* Quick view overlay — appears on hover */}
         <div className={styles.overlay}>
           <button className={styles.quickView}>Quick View</button>
         </div>
       </div>
 
-      {/* Product info — details below the image */}
+      {/* Product info */}
       <div className={styles.info}>
         <p className={styles.category}>{category}</p>
         <h3 className={styles.name}>{name}</h3>
         <p className={styles.price}>{price}</p>
-
-        {/* Color swatches — small circles showing available colors */}
         <div className={styles.colors}>
           {colors.map((color, index) => (
             <span
@@ -48,7 +45,7 @@ const ProductCard = ({ letter, tag, category, name, price, colors }: ProductCard
         </div>
       </div>
 
-    </div>
+    </Link>
   )
 }
 

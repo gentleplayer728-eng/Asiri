@@ -8,6 +8,7 @@ import styles from './Home.module.scss'
 // Product data — will come from backend later
 const products = [
   {
+    id: '1',
     letter: 'À',
     tag: 'New',
     category: 'Ankara Collection',
@@ -16,6 +17,7 @@ const products = [
     colors: ['#C9A962', '#2D5A3D', '#C45D3E'],
   },
   {
+    id: '2',
     letter: 'Ṣ',
     category: 'Adire Heritage',
     name: 'Indigo Flow Dress',
@@ -23,6 +25,7 @@ const products = [
     colors: ['#1E3A5F', '#2A1810'],
   },
   {
+    id: '3',
     letter: 'Í',
     tag: 'Exclusive',
     category: 'Maasai Inspired',
@@ -31,6 +34,7 @@ const products = [
     colors: ['#C45D3E', '#C9A962'],
   },
   {
+    id: '4',
     letter: 'R',
     category: 'Sahel Series',
     name: 'Desert Linen Tunic',
@@ -38,6 +42,7 @@ const products = [
     colors: ['#E8DFD0', '#D4763A'],
   },
   {
+    id: '5',
     letter: 'Í',
     category: 'Bogolan Craft',
     name: 'Mudcloth Bomber',
@@ -45,6 +50,7 @@ const products = [
     colors: ['#2A1810', '#E8DFD0'],
   },
   {
+    id: '6',
     letter: 'À',
     tag: 'Limited',
     category: 'Royal Weave',
@@ -53,6 +59,7 @@ const products = [
     colors: ['#C9A962', '#1E3A5F'],
   },
   {
+    id: '7',
     letter: 'Ṣ',
     category: 'Zulu Collection',
     name: 'Beaded Leather Bag',
@@ -60,6 +67,7 @@ const products = [
     colors: ['#2A1810', '#C45D3E', '#2D5A3D'],
   },
   {
+    id: '8',
     letter: 'R',
     category: 'Ankara Fusion',
     name: 'Print Block Sneakers',
