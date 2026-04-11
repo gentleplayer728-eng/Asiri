@@ -1,0 +1,131 @@
+// Import design tokens and mixins
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// Auth page — centered layout
+.auth {
+  min-height: 100vh;
+  @include flex-center;
+  padding: $spacing-xl $spacing-lg;
+}
+
+// Form container — narrow, centered
+.container {
+  width: 100%;
+  max-width: 440px;
+  text-align: center;
+}
+
+// Logo at top of form
+.logo {
+  @include heading-display;
+  font-size: 2rem;
+  letter-spacing: 0.3em;
+  color: $color-deep-brown;
+  margin-bottom: $spacing-lg;
+}
+
+// Page title
+.title {
+  @include heading-display;
+  font-size: 1.8rem;
+  margin-bottom: $spacing-xs;
+}
+
+// Subtitle
+.subtitle {
+  @include body-text;
+  font-size: 0.9rem;
+  font-weight: 300;
+  opacity: 0.6;
+  margin-bottom: $spacing-lg;
+}
+
+// Form wrapper
+.form {
+  text-align: left;
+  margin-bottom: $spacing-md;
+}
+
+// Name fields side by side
+.nameRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-sm;
+}
+
+// Individual field wrapper
+.field {
+  margin-bottom: $spacing-md;
+}
+
+// Field label
+.label {
+  @include body-text;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $color-deep-brown;
+  display: block;
+  margin-bottom: $spacing-xs;
+}
+
+// Text input
+.input {
+  width: 100%;
+  padding: 14px $spacing-sm;
+  font-family: $font-body;
+  font-size: 0.9rem;
+  color: $color-deep-brown;
+  background: transparent;
+  border: 1px solid rgba(42, 24, 16, 0.2);
+  @include smooth-transition(border-color);
+
+  &:focus {
+    border-color: $color-terracotta;
+  }
+
+  &::placeholder {
+    color: rgba(42, 24, 16, 0.3);
+  }
+}
+
+// Submit button
+.submitBtn {
+  width: 100%;
+  @include body-text;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: $color-cream;
+  background: $color-deep-brown;
+  padding: $spacing-md;
+  cursor: pointer;
+  margin-top: $spacing-sm;
+  @include smooth-transition;
+
+  &:hover {
+    background: $color-terracotta;
+  }
+}
+
+// Switch text — "Already have an account?"
+.switchText {
+  @include body-text;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+// Switch link — "Sign in" / "Create one"
+.switchLink {
+  color: $color-terracotta;
+  text-decoration: none;
+  font-weight: 500;
+  @include smooth-transition(opacity);
+
+  &:hover {
+    opacity: 0.7;
+  }
+}

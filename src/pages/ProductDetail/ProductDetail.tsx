@@ -1,6 +1,6 @@
 // Import hooks for reading URL parameters
 import { useParams } from 'react-router-dom'
-
+import { useCart } from '../../context/CartContext'
 // Import scoped styles
 import styles from './ProductDetail.module.scss'
 
@@ -100,6 +100,9 @@ const ProductDetail = () => {
   // Find the matching product
   const product = allProducts.find((p) => p.id === id)
 
+  // Get the addToCart function from context
+  const { addToCart } = useCart()
+
   // If product not found, show message
   if (!product) {
     return (
@@ -163,7 +166,15 @@ const ProductDetail = () => {
           )}
 
           {/* Add to cart button */}
-          <button className={styles.addToCart}>
+          <button className={styles.addToCart} onClick={() => addToCart({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            color: product.colors[0],
+            size: product.sizes[0] || '',
+            quantity: 1,
+            letter: product.letter,
+          })}>
             <span>Add to Cart</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>

@@ -7,6 +7,9 @@ import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import Products from './pages/Products/Products'
 import ProductDetail from './pages/ProductDetail/ProductDetail'
+import Cart from './pages/Cart/Cart'
+import Login from './pages/Auth/Login'
+import Register from './pages/Auth/Register'
 
 // Import page-level components
 import Home from './pages/Home/Home'
@@ -30,9 +33,11 @@ function App() {
       {/* Routes — content changes based on URL */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetail />} />
-        <Route path="/cart" element={<h1>Cart</h1>} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
 
       {/* Footer sits outside Routes — shows on every page */}
